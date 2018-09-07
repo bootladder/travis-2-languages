@@ -1,2 +1,2 @@
 echo done.  done-hook.
-echo $TUNNEL_URL
+echo tunnel url var = $TUNNEL_URL
