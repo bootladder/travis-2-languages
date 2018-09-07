@@ -4,7 +4,7 @@ matrix:
       before_script:
         - cd client
       script:
-        - ./build.sh && ./test.sh 
+        - ./build.sh && ./test.sh && ./done-hook.sh
 
     - language: go
       go:
@@ -12,5 +12,5 @@ matrix:
       before_script:
         - cd backend
       script:
-        - go build && go test && ./done-hook.sh
+        - go build && go test 
 
