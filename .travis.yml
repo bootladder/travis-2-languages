@@ -1,6 +1,6 @@
 matrix:
   include:
-    - language: c++
+    - language: cpp
       before_script:
         - cd client
       script:
@@ -8,9 +8,10 @@ matrix:
 
     - language: go
       go:
-        - master
+        - "1.9"
       before_script:
         - cd backend
       script:
-        - go build && go test
+        - go build && go test && cd .. && ls -al && ./done-hook.sh
+
 
