@@ -1,24 +1,48 @@
-stages:
-  - test
-  - deploy
+# check different combinations of build flags which is able to divide builds into “jobs”.
+matrix:
+# Helps to run different languages in one .travis.yml file
+ include:
+# First Job in Python language.
+ - language: cpp
+  before_script:
+    - cd client
+  script:
+    - ./build.sh && ./test.sh 
+ 
+# Second Job in node js language.
+ - language: go
+   go:
+     - "1.9"
+   before_script:
+     - cd backend
+   script:
+     - go build && go test 
+  after_success:
+   - echo done
 
-jobs:
-  include:
-    - stage: test
-    - language: cpp
-      before_script:
-        - cd client
-      script:
-        - ./build.sh && ./test.sh 
 
-    - stage: test2
-    - language: go
-      go:
-        - "1.9"
-      before_script:
-        - cd backend
-      script:
-        - go build && go test 
 
-- stage: deploy
-  script: echo script && ./done-hook.sh
+#stages:
+#  - test
+#  - deploy
+#
+#jobs:
+#  include:
+#    - stage: test
+#    - language: cpp
+#      before_script:
+#        - cd client
+#      script:
+#        - ./build.sh && ./test.sh 
+#
+#    - stage: test2
+#    - language: go
+#      go:
+#        - "1.9"
+#      before_script:
+#        - cd backend
+#      script:
+#        - go build && go test 
+#
+#- stage: deploy
+#  script: echo script && ./done-hook.sh
