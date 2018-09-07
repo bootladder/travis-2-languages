@@ -14,5 +14,4 @@ matrix:
       script:
         - go build && go test 
 
-script: 
-  - ./done-hook.sh
+script: echo script && ./done-hook.sh
