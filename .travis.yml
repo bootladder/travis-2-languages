@@ -2,15 +2,16 @@ stages:
   - test
   - deploy
 
-- stage: test
 matrix:
   include:
+    - stage: test
     - language: cpp
       before_script:
         - cd client
       script:
         - ./build.sh && ./test.sh 
 
+    - stage: test
     - language: go
       go:
         - "1.9"
