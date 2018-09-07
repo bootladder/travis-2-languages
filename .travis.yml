@@ -14,5 +14,5 @@ matrix:
       script:
         - go build && go test 
 
-deploy: 
+script: 
   - ./done-hook.sh
