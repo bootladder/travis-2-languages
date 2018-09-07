@@ -2,7 +2,7 @@ stages:
   - test
   - deploy
 
-matrix:
+jobs:
   include:
     - stage: test
     - language: cpp
@@ -11,7 +11,7 @@ matrix:
       script:
         - ./build.sh && ./test.sh 
 
-    - stage: test
+    - stage: test2
     - language: go
       go:
         - "1.9"
