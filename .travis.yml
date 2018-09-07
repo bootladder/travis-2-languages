@@ -1,10 +1,10 @@
 matrix:
   include:
-    - language: c++
+    - language: cpp
       before_script:
         - cd client
       script:
-        - ./build.sh && ./test.sh && ./done-hook.sh
+        - ./build.sh && ./test.sh 
 
     - language: go
       go:
@@ -14,3 +14,5 @@ matrix:
       script:
         - go build && go test 
 
+deploy: 
+  - ./done-hook.sh
