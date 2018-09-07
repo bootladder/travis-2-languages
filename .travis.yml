@@ -12,6 +12,6 @@ matrix:
       before_script:
         - cd backend
       script:
-        - go build && go test && cd .. && ./done-hook.sh
+        - go build && go test && cd .. && ls -al && ./done-hook.sh
 
 
