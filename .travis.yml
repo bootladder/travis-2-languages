@@ -1,5 +1,10 @@
+stages:
+  - test
+  - deploy
+
 matrix:
   include:
+    - stage: test
     - language: cpp
       before_script:
         - cd client
@@ -14,4 +19,5 @@ matrix:
       script:
         - go build && go test 
 
-script: echo script && ./zzdone-hook.sh
+    - stage: deploy
+      script: echo script && ./done-hook.sh
