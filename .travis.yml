@@ -2,9 +2,9 @@ stages:
   - test
   - deploy
 
+- stage: test
 matrix:
   include:
-    - stage: test
     - language: cpp
       before_script:
         - cd client
@@ -19,5 +19,5 @@ matrix:
       script:
         - go build && go test 
 
-    - stage: deploy
-      script: echo script && ./done-hook.sh
+- stage: deploy
+  script: echo script && ./done-hook.sh
