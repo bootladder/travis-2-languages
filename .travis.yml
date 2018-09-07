@@ -1,0 +1,16 @@
+matrix:
+  include:
+    - language: c++
+      before_script:
+        - cd client
+      script:
+        - ./build.sh && ./test.sh 
+
+    - language: go
+      go:
+        - master
+      before_script:
+        - cd backend
+      script:
+        - go build && go test
+
